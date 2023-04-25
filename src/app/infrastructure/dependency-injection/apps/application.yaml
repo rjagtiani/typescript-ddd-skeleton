@@ -1,0 +1,6 @@
+services:
+
+  App.controller.HealthCheckController:
+    class: ../../controllers/HealthCheckController
+    arguments: []
+
