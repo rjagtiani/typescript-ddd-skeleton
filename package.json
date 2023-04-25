@@ -1,0 +1,97 @@
+{
+  "name": "typescript-ddd-skeleton",
+  "version": "1.0.0",
+  "description": "",
+  "license": "",
+  "engines": {
+    "node": ">=18.16.0",
+    "npm": ">=8.11.0"
+  },
+  "scripts": {
+    "dev": "NODE_ENV=dev ts-node-dev --ignore-watch node_modules  ./src/app/start.ts",
+    "lint": "eslint --ignore-path .gitignore .",
+    "lint:fix": "npm run lint -- --fix",
+    "test": "npm run test:unit && npm run test:features",
+    "test:unit": "NODE_ENV=test jest",
+    "test:features": "NODE_ENV=test cucumber-js -p app",
+    "build": "npm run build:clean && npm run build:tsc && npm run build:di",
+    "build:tsc": "tsc -p tsconfig.prod.json",
+    "build:di": "rsync -armR --include='*/' --include='*.yaml' --include='*.json' --include='*.html' --include='*.png' --include='*.jpg' --exclude='*' src/ dist/",
+    "build:clean": "rm -rf dist .tmp; exit 0;"
+  },
+  "dependencies": {
+    "@types/uuid": "^9.0.1",
+    "@types/uuid-validate": "^0.0.1",
+    "body-parser": "^1.20.1",
+    "bodybuilder": "^2.4.0",
+    "bson": "^4.5.2",
+    "compression": "^1.7.4",
+    "connect-flash": "^0.1.1",
+    "cookie-parser": "^1.4.5",
+    "cookie-session": "^2.0.0",
+    "copy": "^0.0.1",
+    "errorhandler": "^1.5.1",
+    "express": "^4.18.2",
+    "express-promise-router": "^4.1.0",
+    "express-validator": "^6.12.2",
+    "glob": "^7.2.0",
+    "helmet": "^4.6.0",
+    "http-status": "^1.5.0",
+    "node-dependency-injection": "^2.7.1",
+    "nunjucks": "^3.2.4",
+    "ts-node": "^10.2.1",
+    "typescript": "^5.0.4",
+    "uuid": "^9.0.0",
+    "uuid-validate": "^0.0.3",
+    "winston": "^3.3.3"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.21.4",
+    "@babel/eslint-parser": "^7.21.3",
+    "@types/bson": "^4.0.5",
+    "@types/compression": "^1.7.2",
+    "@types/connect-flash": "0.0.37",
+    "@types/cookie-parser": "^1.4.2",
+    "@types/cookie-session": "^2.0.44",
+    "@types/cucumber": "^6.0.1",
+    "@types/errorhandler": "1.5.0",
+    "@types/express": "^4.17.13",
+    "@types/faker": "^5.5.8",
+    "@types/glob": "^7.1.4",
+    "@types/helmet": "0.0.48",
+    "@types/jest": "^27.0.2",
+    "@types/node": "^16.10.2",
+    "@types/nunjucks": "^3.2.0",
+    "@types/supertest": "^2.0.11",
+    "@typescript-eslint/eslint-plugin": "^5.59.1",
+    "cucumber": "^6.0.7",
+    "eslint": "^8.39.0",
+    "eslint-config-prettier": "^8.8.0",
+    "eslint-config-standard-with-typescript": "^34.0.1",
+    "eslint-plugin-import": "^2.27.5",
+    "eslint-plugin-n": "^15.7.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-promise": "^6.1.1",
+    "eslint-plugin-simple-import-sort": "^10.0.0",
+    "eslint-plugin-unused-imports": "^2.0.0",
+    "faker": "^5.5.3",
+    "husky": "^7.0.2",
+    "jest": "^29.5.0",
+    "lint-staged": "11.2.0",
+    "prettier": "^2.4.1",
+    "supertest": "^6.3.3",
+    "ts-jest": "^29.1.0",
+    "ts-node-dev": "^1.1.8"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "{src,tests}/**/*.ts": [
+      "npm run lint:fix",
+      "git add"
+    ]
+  }
+}
