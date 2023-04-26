@@ -14,8 +14,9 @@
     "test": "npm run test:unit && npm run test:features",
     "test:unit": "NODE_ENV=test jest",
     "test:features": "NODE_ENV=test cucumber-js -p app",
-    "build": "npm run build:clean && npm run build:tsc",
+    "build": "npm run build:clean && npm run build:tsc && npm run build:di",
     "build:tsc": "tsc -p tsconfig.prod.json",
+    "build:di": "copy 'src/**/*.{json,yaml,html,png}' dist/src",
     "build:clean": "rm -r dist; exit 0"
   },
   "dependencies": {
