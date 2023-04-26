@@ -22,7 +22,7 @@
   "dependencies": {
     "@types/uuid": "^9.0.1",
     "@types/uuid-validate": "^0.0.1",
-    "body-parser": "^1.19.0",
+    "body-parser": "^1.20.1",
     "bodybuilder": "^2.4.0",
     "bson": "^4.5.2",
     "compression": "^1.7.4",
@@ -31,7 +31,7 @@
     "cookie-session": "^1.4.0",
     "copy": "^0.3.2",
     "errorhandler": "^1.5.1",
-    "express": "^4.17.1",
+    "express": "^4.18.2",
     "express-promise-router": "^4.1.0",
     "express-validator": "^6.12.2",
     "glob": "^7.2.0",
