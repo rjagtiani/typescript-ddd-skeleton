@@ -19,6 +19,8 @@
     "build:clean": "rm -r dist; exit 0"
   },
   "dependencies": {
+    "@types/uuid": "^9.0.1",
+    "@types/uuid-validate": "^0.0.1",
     "body-parser": "^1.19.0",
     "bodybuilder": "^2.4.0",
     "bson": "^4.5.2",
@@ -38,6 +40,8 @@
     "nunjucks": "^3.2.3",
     "ts-node": "^10.2.1",
     "typescript": "^4.4.3",
+    "uuid": "^9.0.0",
+    "uuid-validate": "^0.0.3",
     "winston": "^3.3.3"
   },
   "devDependencies": {
