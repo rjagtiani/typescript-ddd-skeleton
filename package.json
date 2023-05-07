@@ -16,8 +16,8 @@
     "test:features": "NODE_ENV=test cucumber-js -p app",
     "build": "npm run build:clean && npm run build:tsc && npm run build:di",
     "build:tsc": "tsc -p tsconfig.prod.json",
-    "build:di": "copy 'src/**/*.{json,yaml,html,png}' dist/src",
-    "build:clean": "rm -rf dist; exit 0;"
+    "build:di": "rsync -armR --include='*/' --include='*.yaml' --include='*.json' --include='*.html' --include='*.png' --include='*.jpg' --exclude='*' src/ dist/",
+    "build:clean": "rm -rf dist .tmp; exit 0;"
   },
   "dependencies": {
     "@types/uuid": "^9.0.1",
